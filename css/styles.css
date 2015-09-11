@@ -1,3 +1,27 @@
+html {
+  min-height: 100%;
+}
+body {
+  min-height: 100%;
+  background: url(img/teaparty.png) top center no-repeat;
+  background-size: cover;
+  color: #fff;
+  font-family: 'Indie Flower', cursive;
+}
+.container {
+  background-color: rgba(0,0,0,.7);
+  width: 60%;
+  margin: 5rem;
+  padding: 2rem 5rem;
+  border-radius: 15px;
+}
+input {
+  color: #000;
+}
+form > option {
+  width: 15rem;
+}
+
 #keywords {
   display: none;
 }
