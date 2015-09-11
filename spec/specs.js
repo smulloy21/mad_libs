@@ -15,3 +15,12 @@ describe('replaceWord', function(){
     expect(replaceWord('(I love coffee.)', 'I', 'You')).to.equal('(You love coffee.)');
   });
 });
+
+describe('findNouns', function(){
+  it('should return an array of the Noun keywords', function(){
+    expect(findNouns('I love Noun1')).to.eql(['Noun1']);
+  });
+  it('should work regardless of punctuation', function(){
+    expect(findNouns('I love Noun1.')).to.eql(['Noun1']);
+  });
+});

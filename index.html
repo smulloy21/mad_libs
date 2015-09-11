@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Mad Libs</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <h1>Play Mad Libs</h1>
+
+      <form id="madlibs" action="index.html" method="post">
+        <select id="choose" form="madlibs">
+          <option value="madlib1">Mad Lib 1</option>
+          <option value="madlib2">Mad Lib 2</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Select</button>
+      </form>
+
+      <div id="input-form">
+        <form class="" action="index.html" method="post">
+
+          <button type="submit" class="btn btn-primary">Go Mad!</button>
+        </form>
+      </div>
+
+      <div id="result">
+        <h3 class="madlib"></h3>
+      </div>
+
+    </div>
+  </body>
+</html>
