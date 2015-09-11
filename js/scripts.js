@@ -8,13 +8,14 @@ var replaceWord = function(string, find, replace) {
 
 var madlibs = {
   madlib1: "Hello Noun1!",
-  madlib2: "I Verb1 Noun1. Noun1 is the best. Noun1 likes Adjective1 Noun2."
+  madlib2: "I Verb1 Noun(sing)1. Noun(sing)1 is the best. Noun(sing)1 likes Adjective1 Noun(plural)1.",
+  madlib3: "Name1 is a Noun(sing)1. Name1 likes to Verb1 Noun(plural)2."
 };
 
 var findKeywords = function(string) {
   var output = [];
   var arr = string.replace(/[.,!?:;'"-]+/g, '').split(' ');
-  var partsOfSpeech = ["Noun", "Verb", "Adjective"];
+  var partsOfSpeech = ["Noun", "Noun(sing)", "Noun(plural)", "Verb", "Verb(3rdSing)", "Adjective", "Name"];
   for(var i = 0; i < arr.length; i++) {
     for(var j = 0; j < partsOfSpeech.length; j++) {
       for(var k = 0; k < arr.length; k++) {
@@ -38,6 +39,7 @@ $(document).ready(function(){
     $('form#keywords-form').append('<input type="hidden" id="madlib" value="' + madlib + '">')
     $('form#keywords-form').append('<input type="hidden" id="array" value="' + arr + '">')
     for(var i = 0; i < arr.length; i++) {
+      arr[i] = arr[i].substring(0, arr[i].length - 1);
       $('form#keywords-form').append('<input id="' + i + '" placeholder="' + arr[i] +'" required>');
     }
     $('form#keywords-form').append('<button type="submit" class="btn btn-primary">Go Mad!</button>');
