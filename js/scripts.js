@@ -8,7 +8,7 @@ var replaceWord = function(string, find, replace) {
 
 var madlibs = {
   madlib1: "Hello Noun1!",
-  madlib2: "I like Noun1."
+  madlib2: "I Verb1 Noun1. Noun1 is the best. Noun1 likes Adjective1 Noun2."
 };
 
 var findKeywords = function(string) {
@@ -30,9 +30,33 @@ var findKeywords = function(string) {
 
 $(document).ready(function(){
   $('form#madlibs').submit(function(event){
+    $('form#keywords-form').empty();
+    $('#keywords').hide();
+    $('#result').hide();
     var madlib = madlibs[$('select#choose').val()];
-
+    var arr = findKeywords(madlib);
+    $('form#keywords-form').append('<input type="hidden" id="madlib" value="' + madlib + '">')
+    $('form#keywords-form').append('<input type="hidden" id="array" value="' + arr + '">')
+    for(var i = 0; i < arr.length; i++) {
+      $('form#keywords-form').append('<input id="' + i + '" placeholder="' + arr[i] +'" required>');
+    }
+    $('form#keywords-form').append('<button type="submit" class="btn btn-primary">Go Mad!</button>');
+    $('#keywords').show();
+    event.preventDefault();
+  });
+  $('form#keywords-form').submit(function(event){
+    $('#keywords').hide();
+    var madlib = $('input#madlib').val();
+    var arr = ($('input#array').val()).split(',');
+    var input = [];
+    for(var i = 0; i < arr.length; i++) {
+      input.push($("form input:nth-child(" + (i + 3) + ")").val());
+    }
+    for(var j = 0; j < input.length; j++) {
+      madlib = replaceWord(madlib, arr[j], input[j]);
+    }
     $('.madlib').text(madlib);
+    $('#result').show();
     event.preventDefault();
   });
 });
