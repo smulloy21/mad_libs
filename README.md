@@ -6,7 +6,7 @@
 
 ## Description
 
-_Play Mad Libs by first selecting a mad lib, then inputing what to replace key words with, then hitting submit._
+_Play Mad Libs by first selecting a mad lib to play, then inputing what to replace keywords with and hitting submit._
 
 link: http://smulloy21.github.io/mad_libs/
 
