@@ -1,9 +1,7 @@
-var replaceWord = function(string, wordToFind, wordToReplace) {
-  var arr = string.split(' ');
-  for(var i = 0; i < arr.length; i++) {
-    if (arr[i] === wordToFind) {
-      arr[i] = wordToReplace;
-    }
-  }
-  return arr.join(' ');
+var escapeRegExp = function (string) {
+    return string.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+};
+
+var replaceWord = function(string, find, replace) {
+  return string.replace(new RegExp(escapeRegExp(find), 'g'), replace);
 };
