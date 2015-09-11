@@ -9,23 +9,47 @@ body {
   font-family: 'Indie Flower', cursive;
 }
 .container {
-  background-color: rgba(0,0,0,.7);
+  background-color: rgba(0,0,0,.8);
   width: 60%;
-  margin: 5rem;
-  padding: 2rem 5rem;
+  margin: 5rem 0 0 10rem;
+  text-align: center;
   border-radius: 15px;
+  padding: 2rem 3rem 5rem 3rem;
+}
+h1 {
+  font-size: 5rem;
 }
 input {
   color: #000;
+  margin: 1rem;
+  font-size: 1.75rem;
+}
+select {
+  font-family: 'Indie Flower', cursive;
+  font-size: 2rem;
 }
 form > option {
   width: 15rem;
+  margin: 2rem;
+  font-family: 'Indie Flower', cursive;
 }
-
+.btn {
+  font-size: 1.75rem;
+  padding: .25rem 1rem 0 1rem;
+}
+.btn-mad {
+  font-size: 2.25rem;
+  padding: .25rem 1rem 0 1rem;
+}
 #keywords {
   display: none;
 }
 
 #result {
   display: none;
+}
+.mad {
+  color: #A10000;
+  font-size: 5.5rem;
+  font-weight: bold;
 }
