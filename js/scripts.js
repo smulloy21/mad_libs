@@ -10,13 +10,13 @@ var madlibs = {
   madlib1: "Hello Noun1!",
   madlib2: "I Verb1 Noun(sing)1. Noun(sing)1 is the best. Noun(sing)1 likes Adjective1 Noun(plural)1.",
   madlib3: "Name1 is a Noun(sing)1. Name1 likes to Verb1 Noun(plural)2.",
-  madlib4: "Twas Adjective1, and the Adjective2 Noun(plural)1, Did Verb1 and Verb2 in the Noun1, All Adjective3 were the Noun(plural)2, And the Adjective4 Noun(plural)3 Adjective5."
+  madlib4: "Twas Adjective1, and the Adjective2 Noun(plural)1 Did Verb1 and Verb2 in the Noun1, All Adjective3 were the Noun(plural)2, And the Adjective4 Noun(plural)3 Adjective5."
 };
 
 var findKeywords = function(string) {
   var output = [];
   var arr = string.replace(/[.,!?:;'"-]+/g, '').split(' ');
-  var partsOfSpeech = ["Noun", "Noun(sing)", "Noun(plural)", "Verb", "Verb(3rdSing)", "Verb(progressive)", "Verb(past)", "Adjective", "Name"];
+  var partsOfSpeech = ["Noun", "Noun(sing)", "Noun(plural)", "Verb", "Verb(3rdSing)", "Verb(progressive)", "Verb(past)", "Adjective", "Name", "Adverb"];
   for(var i = 0; i < arr.length; i++) {
     for(var j = 0; j < partsOfSpeech.length; j++) {
       for(var k = 0; k < arr.length; k++) {
@@ -37,11 +37,8 @@ $(document).ready(function(){
     $('#result').hide();
     var madlib = madlibs[$('select#choose').val()];
     var arr = findKeywords(madlib);
-    $('form#keywords-form').append('<input type="hidden" id="madlib" value="' + madlib + '">')
-    $('form#keywords-form').append('<input type="hidden" id="array" value="' + arr + '">')
     for(var i = 0; i < arr.length; i++) {
-      arr[i] = arr[i].substring(0, arr[i].length - 1);
-      $('form#keywords-form').append('<input id="' + i + '" placeholder="' + arr[i] +'" required>');
+      $('form#keywords-form').append('<input id="' + i + '" placeholder="' + arr[i].substring(0, arr[i].length - 1) +'" required>');
     }
     $('form#keywords-form').append('<br><br><button type="submit" class="btn btn-mad btn-primary">Go Mad!</button>');
     $('#keywords').show();
@@ -49,14 +46,12 @@ $(document).ready(function(){
   });
   $('form#keywords-form').submit(function(event){
     $('#keywords').hide();
-    var madlib = $('input#madlib').val();
-    var arr = ($('input#array').val()).split(',');
-    var input = [];
+    var madlib = madlibs[$('select#choose').val()];
+    var arr = findKeywords(madlib);
+    var input = '';
     for(var i = 0; i < arr.length; i++) {
-      input.push($("form input:nth-child(" + (i + 3) + ")").val());
-    }
-    for(var j = 0; j < input.length; j++) {
-      madlib = replaceWord(madlib, arr[j], input[j]);
+      input = $("form input:nth-child(" + (i + 1) + ")").val();
+      madlib = replaceWord(madlib, arr[i], input);
     }
     $('.madlib').text(madlib);
     $('#result').show();
