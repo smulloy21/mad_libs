@@ -8,8 +8,8 @@ var replaceWord = function(string, find, replace) {
 
 var madlibs = {
   madlib1: "Hello Noun1!",
-  madlib2: "I Verb1 Noun(sing)1. Noun(sing)1 is the best. Noun(sing)1 likes Adjective1 Noun(plural)1.",
-  madlib3: "Name1 is a Noun(sing)1. Name1 likes to Verb1 Noun(plural)2.",
+  madlib2: "Name1 is a Noun(sing)1. Name1 likes to Verb1 Noun(plural)2.",
+  madlib3: "We Verb1 these Noun(plural)1 to be Adjective1, that all Noun(plural)2 are created Adjective2, that they are endowed by their Noun(sing)1 with certain Adjective3 Noun(plural)3, that among these are Noun(sing)2, Noun(sing)3 and the pursuit of Noun(sing)4.",
   madlib4: "Twas Adjective1, and the Adjective2 Noun(plural)1 Did Verb1 and Verb2 in the Noun1, All Adjective3 were the Noun(plural)2, And the Adjective4 Noun(plural)3 Adjective5."
 };
 
